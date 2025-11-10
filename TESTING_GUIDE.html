@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Testing Guide — Healthcare Readmission Predictor</title>
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    max-width: 680px;
+    margin: 40px auto;
+    padding: 0 24px 60px;
+    color: #222;
+    font-size: 16px;
+    line-height: 1.6;
+    background: #fff;
+  }
+  .tag {
+    display: inline-block;
+    background: #fde8ef;
+    color: #b0295a;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 20px;
+    vertical-align: middle;
+    margin-left: 10px;
+    letter-spacing: .4px;
+  }
+  h1 { font-size: 1.7rem; margin: 0 0 6px; color: #111; }
+  .desc { color: #555; margin: 0 0 32px; font-size: 15px; }
+  h2 {
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: #888;
+    margin: 32px 0 12px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 6px;
+  }
+  .step {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+  .num {
+    background: #0070f3;
+    color: #fff;
+    font-weight: 700;
+    font-size: 13px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .step-body { flex: 1; }
+  .step-label { font-weight: 600; color: #111; margin: 0 0 4px; }
+  code {
+    display: block;
+    background: #f4f4f4;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-family: 'SF Mono', 'Fira Code', Menlo, monospace;
+    font-size: 14px;
+    color: #111;
+    user-select: all;
+    cursor: pointer;
+  }
+  .checks li {
+    list-style: none;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    color: #333;
+  }
+  .checks li::before {
+    content: '☐';
+    font-size: 18px;
+    color: #0070f3;
+    flex-shrink: 0;
+  }
+  .checks { padding: 0; margin: 0; }
+  .note {
+    background: #fffbea;
+    border-left: 3px solid #f5a623;
+    padding: 10px 14px;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #6b4c00;
+    margin-top: 20px;
+  }
+  .install-note {
+    font-size: 13px;
+    color: #888;
+    margin: 4px 0 0;
+  }
+</style>
+</head>
+<body>
+
+<h1>Healthcare Readmission Predictor</h1>
+<p class="desc">3,000 patients scored for 30-day readmission risk. Tries to download UCI Heart Disease data; uses synthetic data if offline.</p>
+
+<h2>Setup — Run Once</h2>
+<div class="step">
+  <div class="num">1</div>
+  <div class="step-body">
+    <p class="step-label">Install packages</p>
+    <code>pip3 install -r requirements.txt</code>
+    <p class="install-note">Only needed the first time. Same packages work for all projects.</p>
+  </div>
+</div>
+
+<h2>How to Run</h2>
+<div class="step">
+  <div class="num">2</div>
+  <div class="step-body">
+    <p class="step-label">Go to the folder</p>
+    <code>cd ~/Desktop/Jay_Portfolio_Projects/healthcare-readmission-predictor</code>
+  </div>
+</div>
+<div class="step">
+  <div class="num">3</div>
+  <div class="step-body">
+    <p class="step-label">Run the project</p>
+    <code>python3 main.py</code>
+  </div>
+</div>
+<div class="step">
+  <div class="num">4</div>
+  <div class="step-body">
+    <p class="step-label">Open the dashboard</p>
+    <code>open outputs/readmission_dashboard.html</code>
+  </div>
+</div>
+
+
+<h2>What to Check</h2>
+<ul class="checks">
+  <li>Readmission rate KPI is between 15–35%</li>
+  <li>Risk distribution shows all 3 tiers</li>
+  <li>At least 3 clinical features in importance chart</li>
+  <li><b>SQLite Database:</b> After running, check <code>outputs/data.db</code> — the project stores all data in SQLite and runs SQL queries for core analytics.</li>
+</ul>
+<div class="note">Note: "Using synthetic data" in terminal is normal if you are offline.</div>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Mac system files
+.DS_Store
+.DS_Store?
+._*
+
+# Virtual environments
+venv/
+.env/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Outputs (generated on run)
+outputs/*.db
+
